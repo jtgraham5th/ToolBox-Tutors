@@ -1,0 +1,14 @@
+{
+  "courses": [
+    {
+      "subject": "Math",
+      "price": "$40/hr",
+      "description": "We use standards based research practices to help you develop basic skills and achieve your goals."
+    },
+    { "subject": "Science", "price": "$40/hr" },
+    { "subject": "Social Studies", "price": "$40/hr" },
+    { "subject": "English/Language Arts", "price": "$40/hr" },
+    { "subject": "Test Prep", "price": "$40/hr" }
+  ],
+  "tutors": []
+}
