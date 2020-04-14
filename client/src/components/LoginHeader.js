@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 const LoginHeader = () => {
   return (
-    <div className="ui borderless menu top attached">
+    <div className="ui  borderless menu top attached">
       <div className="link header item">
         <h1>Toolbox Tutors</h1>
       </div>
       <div className="right menu">
         <div className="item">
-          <Link to="/">
+          <Link to="/login/student">
             <div className="ui button green">Student Login</div>
           </Link>
-          <Link to="/">
+          <Link to="/login/tutor">
             <div className="ui button blue">Tutor Login</div>
           </Link>
         </div>

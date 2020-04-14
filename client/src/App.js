@@ -9,7 +9,8 @@ import Tutors from "./containers/Tutors";
 import Calendar from "./components/Calendar";
 import LoginHeader from './components/LoginHeader'
 import history from "./history";
-
+import TutorLogin from "./containers/TutorLogin";
+import StudentLogin from "./containers/StudentLogin";
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
               component={CourseSignUp}
             />
             <Route path="/tutors" exact component={Tutors} />
+            <Route path="/login/student" exact component={StudentLogin} />
+            <Route path="/login/tutor" exact component={TutorLogin} />
             <Route path="/onlineTutoring" exact component={OnlineTutoring} />
             <Route path="/calendar" exact component={Calendar} />
           </Switch>

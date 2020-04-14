@@ -9,6 +9,13 @@ import {
   FETCH_COURSE
 } from "./types";
 import courses from "../apis/courses";
+import axios from 'axios'
+
+export const signUp = ({email, password}) => {
+  return (dispatch) => {
+    axios.post('http://localhost:8000/signup', { email, password });
+  };
+};
 
 export const signIn = userId => {
   return {

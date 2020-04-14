@@ -19,7 +19,8 @@
     "redux-thunk": "^2.3.0",
     "semantic-ui-calendar-react": "^0.15.3",
     "semantic-ui-react": "^0.88.2",
-    "thunk": "0.0.1"
+    "thunk": "0.0.1",
+    "webpack": "^4.42.0"
   },
   "scripts": {
     "start": "react-scripts start",
