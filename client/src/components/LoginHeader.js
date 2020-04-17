@@ -9,10 +9,10 @@ const LoginHeader = () => {
       </div>
       <div className="right menu">
         <div className="item">
-          <Link to="/login/student">
+          <Link to="/student/login">
             <div className="ui button green">Student Login</div>
           </Link>
-          <Link to="/login/tutor">
+          <Link to="/tutor/login">
             <div className="ui button blue">Tutor Login</div>
           </Link>
         </div>

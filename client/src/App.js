@@ -11,6 +11,8 @@ import LoginHeader from './components/LoginHeader'
 import history from "./history";
 import TutorLogin from "./containers/TutorLogin";
 import StudentLogin from "./containers/StudentLogin";
+import StudentRegistration from "./containers/StudentRegistration";
+import TutorRegistration from "./containers/TutorRegistration";
 
 function App() {
   return (
@@ -28,8 +30,10 @@ function App() {
               component={CourseSignUp}
             />
             <Route path="/tutors" exact component={Tutors} />
-            <Route path="/login/student" exact component={StudentLogin} />
-            <Route path="/login/tutor" exact component={TutorLogin} />
+            <Route path="/student/login" exact component={StudentLogin} />
+            <Route path="/student/register" exact component={StudentRegistration} />
+            <Route path="/tutor/login" exact component={TutorLogin} />
+            <Route path="/tutor/register" exact component={TutorRegistration} />
             <Route path="/onlineTutoring" exact component={OnlineTutoring} />
             <Route path="/calendar" exact component={Calendar} />
           </Switch>

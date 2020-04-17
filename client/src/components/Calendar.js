@@ -5,7 +5,7 @@ import {
   DateTimeInput,
   DatesRangeInput
 } from "semantic-ui-calendar-react";
-import moment from 'moment'
+import moment from "moment";
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -21,17 +21,31 @@ class Calendar extends React.Component {
   handleChange = (event, { name, value }) => {
     if (this.state.hasOwnProperty(name)) {
       this.setState({ [name]: value });
-      console.log(value);
+      console.log(name, value);
     }
   };
   onSubmit = event => {
     event.preventDefault();
     console.log(this.state.dateTime);
   };
-
-  render() {
-    const today = moment().format("MM-DD-YYYY")
-    console.log(today)
+  renderDate() {
+    const today = moment().format("MMM DD YYYY");
+    return (
+        <DateInput
+          name="date"
+          value={this.state.date}
+          dateFormat="MMM DD YYYY"
+          minDate={today}
+          // pickerWidth="100%"
+          //   pickerStyle={{color: "red"}}
+          placeholder="Date"
+          iconPosition="left"
+          onChange={this.handleChange}
+        />
+    );
+  }
+  renderDateTime() {
+    const today = moment().format("MM-DD-YYYY");
     return (
       <form onSubmit={this.onSubmit}>
         <DateTimeInput
@@ -42,7 +56,7 @@ class Calendar extends React.Component {
           minDate={today}
           name="dateTime"
           pickerWidth="100%"
-        //   pickerStyle={{color: "red"}}
+          //   pickerStyle={{color: "red"}}
           placeholder="Date Time"
           value={this.state.dateTime}
           iconPosition="left"
@@ -53,6 +67,16 @@ class Calendar extends React.Component {
         </button>
       </form>
     );
+  }
+  render() {
+    var calendar;
+    switch (this.props.format) {
+      case "dateTimeInput":
+        return (calendar = this.renderDateTime());
+      case "dateInput":
+        return (calendar = this.renderDate());
+    }
+    return <form onSubmit={this.onSubmit}>{calendar}</form>;
   }
 }
 

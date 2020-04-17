@@ -21,7 +21,7 @@ class ClassDetail extends React.Component {
               </div>
             </div>
             <div className="ten wide column">
-              <Calendar />
+              <Calendar format="dateTimeInput"/>
             </div>
           </div>
         </div>

@@ -11,9 +11,9 @@ import {
 import courses from "../apis/courses";
 import axios from 'axios'
 
-export const signUp = ({email, password}) => {
+export const tutorRegistration = (body) => {
   return (dispatch) => {
-    axios.post('http://localhost:8000/signup', { email, password });
+    axios.post('http://localhost:8000/tutorRegistration', body);
   };
 };
 
