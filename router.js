@@ -12,7 +12,8 @@ module.exports = function(app) {
   });
   app.post("/tutor/login", requireSignIn, Authentication.tutorLogin);
   app.post("/tutor/sign-up", Authentication.tutorSignup);
-  app.post("/tutor/admin/addCourse", Authentication.addCourse);
+  app.post("/tutor/admin/addCourse", CourseController.addCourse);
+  app.delete("/tutor/admin/removeCourse/:id", CourseController.removeCourse);
 
   app.post("/student/login", requireSignIn, Authentication.studentLogin);
   app.post("/student/sign-up", Authentication.studentSignup);

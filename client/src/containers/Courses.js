@@ -6,18 +6,15 @@ import { fetchCourses } from "../actions";
 class Courses extends React.Component {
   componentDidMount() {
     this.props.fetchCourses();
-    console.log(this.props);
   }
 
   renderList() {
     if (!Object.keys(this.props.courses).length) {
-      console.log(this.props.courses);
       return <div>...Loading</div>;
     } else {
       const courses = this.props.courses;
-      console.log(courses)
       return courses.map(course => {
-        return <CourseDetailCard course={course} />;
+        return <CourseDetailCard key={course._id} course={course} />;
       });
     }
   }

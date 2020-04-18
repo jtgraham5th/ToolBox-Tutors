@@ -4,7 +4,6 @@ const Fields = fields => {
   // const className = `field required ${
   //   meta.error && meta.touched ? "error" : ""
   // }`;
-  console.log(fields)
   return (
     <div className="field">
       <label className="ui left aligned header">{fields.label}</label>

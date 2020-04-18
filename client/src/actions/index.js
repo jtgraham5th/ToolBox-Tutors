@@ -49,6 +49,11 @@ export const addCourse = body => {
     axios.post("http://localhost:8000/tutor/admin/addCourse", body)
   }
 }
+export const removeCourse = subject => {
+  return dispatch => {
+    axios.delete(`http://localhost:8000/tutor/admin/removeCourse/${subject}`)
+  }
+}
 export const fetchCourses = () => {
   return async dispatch => {
     const response = await axios.get("http://localhost:8000/courses");

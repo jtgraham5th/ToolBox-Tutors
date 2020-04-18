@@ -21,7 +21,6 @@ class StudentLogin extends React.Component {
   }
 
   renderInput = ({ input, label, meta }) => {
-    console.log(input);
     const className = `field required ${
       meta.error && meta.touched ? "error" : ""
     }`;

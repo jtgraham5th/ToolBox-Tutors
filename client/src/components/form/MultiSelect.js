@@ -6,7 +6,6 @@ const MultiSelect = ({ input, label, meta, options, renderError }) => {
     meta.error && meta.touched ? "error" : ""
   }`;
   const multiple = input.name === "subjects" ? true : false;
-  console.log(input);
   return (
     <div className={className}>
       <label className="ui left aligned header">{label}</label>

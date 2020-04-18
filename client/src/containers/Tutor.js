@@ -7,14 +7,13 @@ import { Link } from "react-router-dom";
 class Tutor extends React.Component {
   componentDidMount() {
     // this.props.fetchCourses();
-    console.log(this.props);
   }
   renderMenu() {
     return (
-      <div class="ui vertical menu fluid">
-        <Link class="item">Manage Courses</Link>
-        <Link class="item">Upcoming Sessions</Link>
-        <Link class="item">Resources</Link>
+      <div className="ui vertical menu fluid">
+        <Link to="#" className="item">Manage Courses</Link>
+        <Link to="#" className="item">Upcoming Sessions</Link>
+        <Link to="#" className="item">Resources</Link>
       </div>
     );
   }
@@ -27,7 +26,7 @@ class Tutor extends React.Component {
         <div className="ui celled grid">
           <div className="row">
             <div className="ui four wide column">{this.renderMenu()}</div>
-            <div className="ten wide column">
+            <div className="twelve wide column">
               <AdminControls />
             </div>
           </div>

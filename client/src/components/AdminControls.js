@@ -1,15 +1,14 @@
 import React from "react";
-import { Field, Fields, reduxForm } from "redux-form";
+import { Field, reduxForm } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { fetchCourses, addCourse } from "../actions";
+import { fetchCourses, addCourse, removeCourse } from "../actions";
 import { TextArea, Input } from "../components/form";
 
 class AdminControls extends React.Component {
   state = { courses: [] };
   componentDidMount = () => {
     this.props.fetchCourses();
-    console.log(this.props);
   };
   renderError = () => {};
 
@@ -19,21 +18,30 @@ class AdminControls extends React.Component {
   onSubmit = formValues => {
     this.props.addCourse(formValues);
   };
+  removeCourse = courseName => {
+    this.props.removeCourse(courseName);
+  };
   currentCourses = () => {
-    console.log(this.props.courses.length);
     if (this.props.courses.length <= 0) {
       return <div>...Loading</div>;
     } else if (this.props.courses.length > 0) {
-      console.log(this.props.courses);
       const courses = this.props.courses;
-      return courses.map(course => {
-        return (
-          <button class="ui right labeled icon button">
-            <i class="right close icon"></i>
-            {course.courseName}
-          </button>
-        );
-      });
+      return (
+        <div className="ui vertical buttons">
+          {courses.map(course => {
+            return (
+              <button
+                key={course._id}
+                className="ui right labeled icon button"
+                onClick={() => this.removeCourse(`${course.courseName}`)}
+              >
+                <i className="close icon"></i>
+                {course.courseName}
+              </button>
+            );
+          })}
+        </div>
+      );
     }
   };
 
@@ -42,9 +50,9 @@ class AdminControls extends React.Component {
     const { handleSubmit } = this.props;
     return (
       <div className="segment">
-        <div class="ui grid">
+        <div className="ui grid">
           <div className="twelve wide column">
-            <h2>Add New Course</h2>
+            <h3>Add New Course</h3>
 
             <form
               className="ui form error"
@@ -71,7 +79,7 @@ class AdminControls extends React.Component {
             </form>
           </div>
           <div className="four wide column">
-            <div>Remove Courses:</div>
+            <h3>Remove Courses:</h3>
             {this.currentCourses()}
           </div>
         </div>
@@ -97,7 +105,7 @@ const mapStateToProps = state => {
   };
 };
 export default compose(
-  connect(mapStateToProps, { fetchCourses, addCourse }),
+  connect(mapStateToProps, { fetchCourses, addCourse, removeCourse }),
   reduxForm({
     form: "AdminControls",
     validate
