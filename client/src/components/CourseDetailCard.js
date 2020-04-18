@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class ClassDetailCard extends React.Component {
-  iconConfig(subject) {
-    switch (subject) {
+  iconConfig(courseName) {
+    switch (courseName) {
       case "Math":
         return "calculator";
       case "Science":
@@ -19,23 +19,23 @@ class ClassDetailCard extends React.Component {
     }
   }
   render() {
-    const { subject, price, description } = this.props.course;
+    const { courseName, price, description } = this.props.course;
     return (
       <div className="card">
         <div className="content">
           <i
-            className={`icon big left floated ${this.iconConfig(`${subject}`)}`}
+            className={`icon big left floated ${this.iconConfig(`${courseName}`)}`}
           ></i>
-          <div className="header">{subject}</div>
-          <div className="meta">{price}</div>
+          <div className="header">{courseName}</div>
+          <div className="meta">${price} per hour</div>
           <div className="description">{description}</div>
         </div>
         <div className="extra content">
           <div className="ui two buttons">
-            <Link to={`/course/${subject}`}>
+            <Link to={`/course/${courseName}`}>
               <button className="ui primary button">Sign Up</button>
             </Link>
-            <Link to={`/course/${subject}`}>
+            <Link to={`/course/${courseName}`}>
               <button className="ui secondary button">More Info</button>
             </Link>
           </div>

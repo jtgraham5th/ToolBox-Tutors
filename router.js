@@ -1,4 +1,5 @@
 const Authentication = require("./controllers/authentication");
+const CourseController = require("./controllers/courseController");
 const passportService = require("./services/passport");
 const passport = require("passport");
 
@@ -8,13 +9,15 @@ const requireSignIn = passport.authenticate("local", { session: false });
 module.exports = function(app) {
   app.get("/", requireAuth, function(req, res) {
     res.send({ hi: "there" });
-  });  
-  app.post("/tutor/login", requireSignIn,Authentication.tutorLogin);
+  });
+  app.post("/tutor/login", requireSignIn, Authentication.tutorLogin);
   app.post("/tutor/sign-up", Authentication.tutorSignup);
   app.post("/tutor/admin/addCourse", Authentication.addCourse);
-  
+
   app.post("/student/login", requireSignIn, Authentication.studentLogin);
   app.post("/student/sign-up", Authentication.studentSignup);
+
+  app.get("/courses", CourseController.fetchCourses);
 
   // app.post("/signup", Authentication.signup);
   // app.post("/signin", requireSignIn, Authentication.signin);

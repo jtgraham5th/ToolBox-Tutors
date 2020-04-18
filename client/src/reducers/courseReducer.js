@@ -9,7 +9,7 @@ import {
 export default (state = {}, action) => {
   switch (action.type) {
     case FETCH_COURSES:
-      return { ...state, ..._.mapKeys(action.payload, "subject") };
+      return action.payload.data;
     case FETCH_COURSE:
       return { ...state, [action.payload.id]: action.payload };
     case EDIT_TUTOR:

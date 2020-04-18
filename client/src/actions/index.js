@@ -49,6 +49,13 @@ export const addCourse = body => {
     axios.post("http://localhost:8000/tutor/admin/addCourse", body)
   }
 }
+export const fetchCourses = () => {
+  return async dispatch => {
+    const response = await axios.get("http://localhost:8000/courses");
+
+    dispatch({ type: FETCH_COURSES, payload: response.data });
+  };
+};
 export const signIn = userId => {
   return {
     type: SIGN_IN,
@@ -70,13 +77,7 @@ export const createTutor = formValues => {
   };
 };
 
-export const fetchCourses = () => {
-  return async dispatch => {
-    const response = await courses.get("/courses");
 
-    dispatch({ type: FETCH_COURSES, payload: response.data });
-  };
-};
 
 export const fetchCourse = subject => {
   return async dispatch => {

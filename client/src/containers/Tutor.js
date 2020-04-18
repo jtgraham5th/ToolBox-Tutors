@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { fetchCourses } from "../actions";
 import { Link } from "react-router-dom";
 
-
 class Tutor extends React.Component {
   componentDidMount() {
     // this.props.fetchCourses();
@@ -13,7 +12,7 @@ class Tutor extends React.Component {
   renderMenu() {
     return (
       <div class="ui vertical menu fluid">
-        <Link class="item">Add Courses</Link>
+        <Link class="item">Manage Courses</Link>
         <Link class="item">Upcoming Sessions</Link>
         <Link class="item">Resources</Link>
       </div>
