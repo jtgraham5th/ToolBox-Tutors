@@ -9,7 +9,13 @@ module.exports = function(app) {
   app.get("/", requireAuth, function(req, res) {
     res.send({ hi: "there" });
   });  
-  app.post("/tutorRegistration", Authentication.tutorRegistration);
+  app.post("/tutor/login", requireSignIn,Authentication.tutorLogin);
+  app.post("/tutor/sign-up", Authentication.tutorSignup);
+  app.post("/tutor/admin/addCourse", Authentication.addCourse);
+  
+  app.post("/student/login", requireSignIn, Authentication.studentLogin);
+  app.post("/student/sign-up", Authentication.studentSignup);
+
   // app.post("/signup", Authentication.signup);
   // app.post("/signin", requireSignIn, Authentication.signin);
 };

@@ -17,7 +17,7 @@ import {
 class TutorRegistration extends React.Component {
   onSubmit = formValues => {
     console.log(this.props)
-    this.props.tutorRegistration(formValues);
+    this.props.tutorSignUp(formValues);
   };
 
   renderError({ error, touched }) {
@@ -178,7 +178,7 @@ const validate = formValues => {
 export default compose(
   connect(null, actions),
   reduxForm({
-    form: "StudentSignUp",
+    form: "TutorSignUp",
     validate
   })
 )(TutorRegistration);

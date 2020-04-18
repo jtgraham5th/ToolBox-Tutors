@@ -1,16 +1,19 @@
 const passport = require("passport");
 const Student = require("../models/student");
+const Tutor = require("../models/tutor");
 const config = require("../config");
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const LocalStrategy = require("passport-local");
 //Create local Strategy
 const localOptions = { usernameField: "email" };
+
 const localLogin = new LocalStrategy(localOptions, function(
   email,
   password,
   done
 ) {
+ 
   //verify this email and password,
   //call done with the email and password
   //otherwise, call done with false

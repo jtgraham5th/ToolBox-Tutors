@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 
 class StudentLogin extends React.Component {
   onSubmit = formProps => {
-    console.log(this.props.signUp(formProps));
+    this.props.studentLogin(formProps)
+    console.log(formProps);
   };
   renderError({ error, touched }) {
     if (touched && error) {

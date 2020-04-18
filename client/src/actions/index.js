@@ -1,4 +1,4 @@
-import history from '../history'
+import history from "../history";
 import {
   SIGN_IN,
   SIGN_OUT,
@@ -9,14 +9,46 @@ import {
   FETCH_COURSE
 } from "./types";
 import courses from "../apis/courses";
-import axios from 'axios'
+import axios from "axios";
 
-export const tutorRegistration = (body) => {
-  return (dispatch) => {
-    axios.post('http://localhost:8000/tutorRegistration', body);
+export const tutorSignUp = body => {
+  return dispatch => {
+    axios.post("http://localhost:8000/tutor/sign-up", body);
+    history.push("/");
   };
 };
-
+export const tutorLogin = body => {
+  return dispatch => {
+    axios.post("http://localhost:8000/tutor/login", body);
+    history.push("/tutor");
+  };
+};
+export const studentSignUp = body => {
+  return dispatch => {
+    axios.post("http://localhost:8000/student/sign-up", body);
+    history.push("/");
+  };
+};
+export const studentLogin = body => {
+  return dispatch => {
+    axios
+      .post("http://localhost:8000/student/login", body)
+      .then(response => {
+        // console.log(response);
+        history.push("/student");
+      })
+      .catch(err => {
+        // console.log(err);
+        history.push("/");
+      });
+    
+  };
+};
+export const addCourse = body => {
+  return dispatch => {
+    axios.post("http://localhost:8000/tutor/admin/addCourse", body)
+  }
+}
 export const signIn = userId => {
   return {
     type: SIGN_IN,
@@ -59,7 +91,6 @@ export const editTutor = (id, formValues) => {
 
     dispatch({ type: EDIT_TUTOR, payload: response.data });
     history.push("/");
-
   };
 };
 
@@ -69,6 +100,5 @@ export const deleteTutor = id => {
 
     dispatch({ type: DELETE_TUTOR, payload: id });
     history.push("/");
-
   };
 };

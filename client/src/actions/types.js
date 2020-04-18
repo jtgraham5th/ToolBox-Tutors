@@ -6,3 +6,4 @@ export const FETCH_COURSE = 'FETCH_COURSE';
 export const CREATE_TUTOR = 'CREATE_TUTOR';
 export const DELETE_TUTOR = 'DELETE_TUTOR';
 export const EDIT_TUTOR = 'EDIT_TUTOR';
+export const CREATE_STUDENT = 'CREATE_STUDENT';
